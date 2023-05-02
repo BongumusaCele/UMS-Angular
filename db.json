@@ -1,0 +1,68 @@
+{
+  "user": [
+    {
+      "id": "bongumusa",
+      "name": "Bongumusa",
+      "password": "VaJ4!5aB@ypMR2a",
+      "email": "musa@gmail.com",
+      "gender": "male",
+      "role": "admin",
+      "isactive": true
+    },
+    {
+      "id": "test1",
+      "name": "test1",
+      "password": "VaJ4!5aB@ypMR2a",
+      "email": "musa@gmail.com",
+      "gender": "male",
+      "role": "",
+      "isactive": false
+    },
+    {
+      "id": "test2",
+      "name": "test2",
+      "password": "VaJ4!5aB@ypMR2a",
+      "email": "musa@gmail.com",
+      "gender": "male",
+      "role": "",
+      "isactive": false
+    },
+    {
+      "id": "test3",
+      "name": "test3",
+      "password": "VaJ4!5aB@ypMR2a",
+      "email": "musa@gmail.com",
+      "gender": "male",
+      "role": "",
+      "isactive": true
+    },
+    {
+      "id": "test4",
+      "name": "test4",
+      "password": "VaJ4!5aB@ypMR2a",
+      "email": "musa@gmail.com",
+      "gender": "male",
+      "role": "",
+      "isactive": false
+    },
+    {
+      "id": "test5",
+      "name": "test5",
+      "password": "VaJ4!5aB@ypMR2a",
+      "email": "musa@gmail.com",
+      "gender": "male",
+      "role": "",
+      "isactive": true
+    }
+  ],
+  "role": [
+    {
+      "id": "staff",
+      "name": "Staff"
+    },
+    {
+      "id": "quality",
+      "name": "Quality"
+    }
+  ]
+}

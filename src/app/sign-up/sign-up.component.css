@@ -1,0 +1,28 @@
+mat-card {
+  max-width: 600px;
+  margin: 10em auto;
+  text-align: center;
+  max-height: 600px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+}
+
+mat-card h1 {
+  padding: 5px;
+  padding-left: 245px;
+  padding-top: 25px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+example-full-widt {
+  width: 100%;
+}
+
+myBTN {
+  padding-bottom: 200px;
+}
