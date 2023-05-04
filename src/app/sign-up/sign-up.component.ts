@@ -10,13 +10,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-up.component.css'],
 })
 export class SignUpComponent {
+  public showPassword: boolean = false;
   constructor(
     private builder: FormBuilder,
     private toastr: ToastrService,
     private service: AuthService,
     private router: Router
   ) {}
-
+  /* ,
+        Validators.pattern(
+          '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,}'
+        ), */
   registerform = this.builder.group({
     id: this.builder.control(
       '',
@@ -25,18 +29,12 @@ export class SignUpComponent {
     name: this.builder.control('', Validators.required),
     password: this.builder.control(
       '',
-      Validators.compose([
-        Validators.required,
-        Validators.pattern(
-          '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,}'
-        ),
-      ])
+      Validators.compose([Validators.required])
     ),
     email: this.builder.control(
       '',
       Validators.compose([Validators.required, Validators.email])
     ),
-    gender: this.builder.control('male'),
     role: this.builder.control(''),
     isactive: this.builder.control(false),
   });
@@ -50,5 +48,9 @@ export class SignUpComponent {
     } else {
       this.toastr.warning('Please enter valid data');
     }
+  }
+
+  public togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 }

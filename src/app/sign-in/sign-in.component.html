@@ -24,16 +24,29 @@
           class="example-full-widt"
         >
           <mat-label>Password</mat-label>
-          <input matInput formControlName="password" />
+          <input
+            matInput
+            [type]="showPassword ? 'text' : 'password'"
+            formControlName="password"
+          />
+          <mat-icon matSuffix (click)="togglePasswordVisibility()">{{
+            showPassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
         </mat-form-field>
 
         <div class="example-button-row myBTN">
-          <button [style.width.px]="327" mat-raised-button color="primary">
+          <button
+            [style.width.px]="327"
+            [style.border-radius.px]="40"
+            mat-raised-button
+            color="primary"
+          >
             Login</button
           ><br />
           <br />
           <a
             [style.width.px]="327"
+            [style.border-radius.px]="40"
             routerLink="/sign-up"
             mat-raised-button
             color="accent"

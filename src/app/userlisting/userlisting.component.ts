@@ -30,14 +30,7 @@ export class UserlistingComponent {
     });
   }
 
-  displayedColumns: string[] = [
-    'username',
-    'name',
-    'email',
-    'role',
-    'status',
-    'action',
-  ];
+  displayedColumns: string[] = ['username', 'name', 'email', 'action'];
 
   UpdateUser(code: any) {
     const popup = this.dialog.open(UpdatepopupComponent, {

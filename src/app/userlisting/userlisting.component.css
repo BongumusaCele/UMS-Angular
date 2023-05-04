@@ -1,0 +1,36 @@
+.demo-table {
+  margin-top: 50px;
+}
+
+.demo-table th {
+  background-color: #e74646;
+  color: #fff;
+  font-size: 16px;
+  padding: 20px;
+}
+
+.demo-table td {
+  background-color: #fa9884;
+  color: #fff;
+  font-size: 16px;
+  padding: 20px;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container {
+  background-color: #e74646;
+  color: #fff;
+  border-radius: 30px;
+  width: 50%;
+  margin: 10px;
+  margin-left: 550px;
+}
+
+::ng-deep .mat-mdc-paginator {
+  background: transparent;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions {
+  background-color: #fa9884;
+  border-radius: 30px;
+  color: black;
+}

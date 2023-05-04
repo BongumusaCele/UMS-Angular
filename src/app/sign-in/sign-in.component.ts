@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   Validators,
@@ -14,16 +14,20 @@ import { Router } from '@angular/router';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css'],
 })
-export class SignInComponent {
+export class SignInComponent implements OnInit {
   userdata: any;
+  public showPassword: boolean = false;
 
   constructor(
     private builder: FormBuilder,
     private toastr: ToastrService,
     private service: AuthService,
     private router: Router
-  ) {
-    sessionStorage.clear();
+  ) {}
+  ngOnInit(): void {
+    if (this.service.IsloggedIn()) {
+      this.router.navigate(['']);
+    }
   }
 
   loginform = this.builder.group({
@@ -33,23 +37,37 @@ export class SignInComponent {
 
   proceedLogin() {
     if (this.loginform.valid) {
-      this.service.getBycode(this.loginform.value.username).subscribe((res) => {
-        this.userdata = res;
-        console.log(this.userdata);
-        if (this.userdata.password === this.loginform.value.password) {
-          if (this.userdata.isactive) {
-            sessionStorage.setItem('username', this.userdata.id);
-            sessionStorage.setItem('userrole', this.userdata.role);
-            this.router.navigate(['']);
+      this.service.getBycode(this.loginform.value.username).subscribe(
+        (res) => {
+          this.userdata = res;
+          console.log(this.userdata);
+          if (this.userdata.password === this.loginform.value.password) {
+            if (this.userdata.isactive) {
+              sessionStorage.setItem('username', this.userdata.id);
+              sessionStorage.setItem('userrole', this.userdata.role);
+              this.router.navigate(['']);
+            } else {
+              this.toastr.error('Please contact admin', 'In Active User');
+            }
           } else {
-            this.toastr.error('Please contact admin', 'In Active User');
+            this.toastr.error('Invalid Credentials');
           }
-        } else {
-          this.toastr.error('Invalid Credentials');
+        },
+        (error: Response) => {
+          if (error.status === 404) this.toastr.warning('Username Not Found');
+          else {
+            // We wanna display generic error message and log the error
+            alert('An Unexpected Error Occured.');
+            console.log(error);
+          }
         }
-      });
+      );
     } else {
       this.toastr.warning('Please enter valid data');
     }
+  }
+
+  public togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 }

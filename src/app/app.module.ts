@@ -14,6 +14,9 @@ import { HomeComponent } from './home/home.component';
 import { UserlistingComponent } from './userlisting/userlisting.component';
 import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
 import { MatIconModule } from '@angular/material/icon';
+import { CustomerComponent } from './customer/customer.component';
+import { ActivatepopupComponent } from './activatepopup/activatepopup.component';
+import { EdituserComponent } from './edituser/edituser.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,9 @@ import { MatIconModule } from '@angular/material/icon';
     HomeComponent,
     UserlistingComponent,
     UpdatepopupComponent,
+    CustomerComponent,
+    ActivatepopupComponent,
+    EdituserComponent,
   ],
   imports: [
     BrowserModule,

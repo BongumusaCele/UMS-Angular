@@ -1,12 +1,12 @@
 <mat-card>
   <mat-card-header>
-    <h1>Sign Up</h1>
+    <h1>Update User</h1>
   </mat-card-header>
   <mat-card-content>
     <form
       class="example-form"
       [formGroup]="registerform"
-      (ngSubmit)="proceedRegistration()"
+      (ngSubmit)="updateuser()"
     >
       <mat-form-field
         appearance="outline"
@@ -50,19 +50,26 @@
           showPassword ? "visibility_off" : "visibility"
         }}</mat-icon>
       </mat-form-field>
-
       <br />
-      <div class="example-button-row">
-        <button [style.width.px]="327" mat-raised-button color="primary">
-          Register</button
-        ><br /><br />
-        <a
-          [style.width.px]="327"
-          routerLink="/sign-in"
-          mat-raised-button
-          color="accent"
-          >Already Have An Account? Sign In.</a
+      <mat-form-field class="example-full-width">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="role">
+          <mat-option value="">Select Role</mat-option>
+          <mat-option *ngFor="let item of rolelist" [value]="item.code">
+            {{ item.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div>
+        <mat-checkbox formControlName="isactive" class="example-margin"
+          >Is Active</mat-checkbox
         >
+      </div>
+
+      <div class="example-button-row">
+        <button mat-raised-button color="primary">Update</button><br />
+        <a mat-dialog-close mat-raised-button color="accent">Close</a>
       </div>
     </form>
   </mat-card-content>

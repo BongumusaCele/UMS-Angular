@@ -38,4 +38,21 @@ export class AuthService {
       ? sessionStorage.getItem('userrole')?.toString()
       : '';
   }
+
+  getAllCustomer() {
+    return this.http.get('http://localhost:3000/customer');
+  }
+
+  Getaccessbyrole(role: any, menu: any) {
+    return this.http.get(
+      'http://localhost:3000/roleaccess?role=admin&menu=customer' +
+        role +
+        '&menu' +
+        menu
+    );
+  }
+
+  deleteUser(code: any) {
+    return this.http.delete('http://localhost:3000/user/' + code);
+  }
 }

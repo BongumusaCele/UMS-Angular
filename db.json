@@ -1,68 +1,163 @@
 {
   "user": [
     {
-      "id": "bongumusa",
-      "name": "Bongumusa",
-      "password": "VaJ4!5aB@ypMR2a",
-      "email": "musa@gmail.com",
-      "gender": "male",
+      "id": "admin",
+      "name": "0112566633",
+      "password": "admin>50",
+      "email": "admin@digilink.africa",
       "role": "admin",
       "isactive": true
     },
     {
-      "id": "test1",
-      "name": "test1",
-      "password": "VaJ4!5aB@ypMR2a",
-      "email": "musa@gmail.com",
-      "gender": "male",
+      "id": "kevin",
+      "name": "0399655488",
+      "password": "kevinkdb>30",
+      "email": "kevindebruyne@gmail.com",
       "role": "",
       "isactive": false
     },
     {
-      "id": "test2",
-      "name": "test2",
-      "password": "VaJ4!5aB@ypMR2a",
-      "email": "musa@gmail.com",
-      "gender": "male",
+      "id": "bernardo",
+      "name": "0758963574",
+      "password": "bernardo>20",
+      "email": "bernardosilva@gmail.com",
       "role": "",
       "isactive": false
     },
     {
-      "id": "test3",
-      "name": "test3",
-      "password": "VaJ4!5aB@ypMR2a",
-      "email": "musa@gmail.com",
-      "gender": "male",
-      "role": "",
-      "isactive": true
-    },
-    {
-      "id": "test4",
-      "name": "test4",
-      "password": "VaJ4!5aB@ypMR2a",
-      "email": "musa@gmail.com",
-      "gender": "male",
+      "id": "philfoden",
+      "name": "0826983221",
+      "password": "foden>42",
+      "email": "philfoden@gmail.com",
       "role": "",
       "isactive": false
     },
     {
-      "id": "test5",
-      "name": "test5",
-      "password": "VaJ4!5aB@ypMR2a",
-      "email": "musa@gmail.com",
-      "gender": "male",
+      "id": "nathanake",
+      "name": "1204588963",
+      "password": "nathan>45",
+      "email": "nathanake@outlook.co.za",
       "role": "",
-      "isactive": true
+      "isactive": false
+    },
+    {
+      "id": "rubendias",
+      "name": "0698845566",
+      "password": "ruben<96",
+      "email": "rubendias@yahoo.com",
+      "role": "",
+      "isactive": false
+    },
+    {
+      "id": "leroysane",
+      "name": "0224445669",
+      "password": "leroysane=19",
+      "email": "leroysane@city.uk",
+      "role": "",
+      "isactive": false
+    },
+    {
+      "id": "davidsilva",
+      "name": "0326656996",
+      "password": "davidsilva=21",
+      "email": "davidsilva@city.com",
+      "role": "",
+      "isactive": false
+    },
+    {
+      "id": "superjack",
+      "name": "0786665522",
+      "password": "superjack>10",
+      "email": "superjack@outlook.uk",
+      "role": "",
+      "isactive": false
+    },
+    {
+      "id": "aymeric",
+      "name": "01224444788",
+      "password": "larporte=99",
+      "email": "larporte@gmail.com",
+      "role": "",
+      "isactive": false
     }
   ],
   "role": [
     {
-      "id": "staff",
-      "name": "Staff"
+      "code": "user",
+      "name": "User"
     },
     {
-      "id": "quality",
-      "name": "Quality"
+      "code": "tech",
+      "name": "Tech"
+    }
+  ],
+  "menu": [
+    {
+      "code": "user",
+      "name": "User"
+    },
+    {
+      "code": "customer",
+      "name": "Customer"
+    }
+  ],
+  "roleaccess": [
+    {
+      "role": "admin",
+      "menu": "user",
+      "haveedit": true,
+      "haveadd": true,
+      "havedelete": true
+    },
+    {
+      "role": "admin",
+      "menu": "customer",
+      "haveedit": true,
+      "haveadd": true,
+      "havedelete": true
+    },
+    {
+      "role": "user",
+      "menu": "user",
+      "haveedit": false,
+      "haveadd": false,
+      "havedelete": false
+    },
+    {
+      "role": "user",
+      "menu": "customer",
+      "haveedit": true,
+      "haveadd": true,
+      "havedelete": false
+    },
+    {
+      "role": "tech",
+      "menu": "customer",
+      "haveedit": false,
+      "haveadd": true,
+      "havedelete": false
+    }
+  ],
+  "customer": [
+    {
+      "id": 1,
+      "name": "Kevin",
+      "Creditlimit": 1000
+    },
+    {
+      "id": 2,
+      "name": "Phil",
+      "Creditlimit": 1000
+    },
+    {
+      "id": 3,
+      "name": "Bernardo",
+      "Creditlimit": 1000
+    },
+    {
+      "id": 4,
+      "name": "Aymeric",
+      "Creditlimit": 1000
     }
   ]
 }
