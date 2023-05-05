@@ -41,10 +41,24 @@ export class SignUpComponent {
 
   proceedRegistration() {
     if (this.registerform.valid) {
-      this.service.proceedRegister(this.registerform.value).subscribe((res) => {
-        this.toastr.success('Contact Admin For Access', 'Sign Up Successful!');
-        this.router.navigate(['sign-in']);
-      });
+      this.service.proceedRegister(this.registerform.value).subscribe(
+        (res) => {
+          this.toastr.success(
+            'Contact Admin For Access',
+            'Sign Up Successful!'
+          );
+          this.router.navigate(['sign-in']);
+        },
+        (error: Response) => {
+          if (error.status === 500)
+            this.toastr.warning('username already exists');
+          else {
+            // We wanna display generic error message and log the error
+            alert('An Unexpected Error Occured.');
+            console.log(error);
+          }
+        }
+      );
     } else {
       this.toastr.warning('Please enter valid data');
     }

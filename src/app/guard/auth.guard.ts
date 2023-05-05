@@ -32,7 +32,7 @@ export class AuthGuard implements CanActivate {
       if (route.url.length > 0) {
         let menu = route.url[0].path;
         if (menu == 'user') {
-          if (this.service.GetUserrole() != 'admin') {
+          if (this.service.GetUserrole() === 'admin') {
             return true;
           } else {
             this.toastr.warning('you dont have access');

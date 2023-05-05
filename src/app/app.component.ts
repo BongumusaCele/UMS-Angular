@@ -29,6 +29,13 @@ export class AppComponent implements DoCheck {
     }
   }
 
+  checkRole() {
+    if (this.service.GetUserrole() === 'admin') {
+      return true;
+    } else {
+      return false;
+    }
+  }
   logout() {
     sessionStorage.clear();
     this.router.navigate(['/sign-in']);

@@ -5,6 +5,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdatepopupComponent } from '../updatepopup/updatepopup.component';
+import { ToastrService } from 'ngx-toastr';
+import { ActivatepopupComponent } from '../activatepopup/activatepopup.component';
+import { EdituserComponent } from '../edituser/edituser.component';
 
 @Component({
   selector: 'app-userlisting',
@@ -12,28 +15,61 @@ import { UpdatepopupComponent } from '../updatepopup/updatepopup.component';
   styleUrls: ['./userlisting.component.css'],
 })
 export class UserlistingComponent {
-  constructor(private service: AuthService, private dialog: MatDialog) {
-    this.Loaduser();
+  constructor(
+    private service: AuthService,
+    private dialog: MatDialog,
+    private toastr: ToastrService
+  ) {
+    this.LoadCustomer();
+    this.SetAccesspermission();
   }
 
-  userlist: any;
+  customerlist: any;
   dataSource: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  Loaduser() {
+  accessdata: any;
+  haveedit = false;
+  haveadd = false;
+  havedelete = false;
+
+  LoadCustomer() {
     this.service.getAll().subscribe((res) => {
-      this.userlist = res;
-      this.dataSource = new MatTableDataSource(this.userlist);
+      this.customerlist = res;
+      this.dataSource = new MatTableDataSource(this.customerlist);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
   }
 
-  displayedColumns: string[] = ['username', 'name', 'email', 'action'];
+  SetAccesspermission() {
+    this.service
+      .Getaccessbyrole(this.service.GetUserrole(), 'customer')
+      .subscribe((res) => {
+        this.accessdata = res;
+        console.log(this.accessdata);
 
-  UpdateUser(code: any) {
-    const popup = this.dialog.open(UpdatepopupComponent, {
+        if (this.accessdata.length > 0) {
+          this.haveadd = this.accessdata[0].haveadd;
+          this.haveedit = this.accessdata[0].haveedit;
+          this.havedelete = this.accessdata[0].havedelete;
+        }
+      });
+  }
+
+  displayedColumns: string[] = [
+    'username',
+    'name',
+    'password',
+    'email',
+    'role',
+    'status',
+    'action',
+  ];
+
+  Activation(code: any) {
+    const activationpopup = this.dialog.open(ActivatepopupComponent, {
       enterAnimationDuration: '1000ms',
       exitAnimationDuration: '500ms',
       width: '50%',
@@ -42,9 +78,47 @@ export class UserlistingComponent {
       },
     });
 
-    popup.afterClosed().subscribe((res) => {
-      this.Loaduser();
+    activationpopup.afterClosed().subscribe((res) => {
+      this.LoadCustomer();
     });
+  }
+
+  UpdateCustomer(code: any) {
+    if (sessionStorage.getItem('userrole') === 'admin') {
+      const edituserpopup = this.dialog.open(EdituserComponent, {
+        enterAnimationDuration: '1000ms',
+        exitAnimationDuration: '500ms',
+        width: '50%',
+        data: {
+          usercode: code,
+        },
+      });
+
+      edituserpopup.afterClosed().subscribe((res) => {
+        this.LoadCustomer();
+      });
+      this.toastr.success('Success');
+    } else {
+      this.toastr.warning("You don't have access to Edit");
+    }
+  }
+
+  RemoveCustomer(code: any) {
+    if (sessionStorage.getItem('userrole') === 'admin') {
+      this.service.deleteUser(code).subscribe();
+      this.LoadCustomer();
+      this.toastr.success('Success');
+    } else {
+      this.toastr.warning("You don't have access to Edit");
+    }
+  }
+
+  AddCustomer(code: any) {
+    if (sessionStorage.getItem('userrole') === 'admin') {
+      this.toastr.success('Success');
+    } else {
+      this.toastr.warning("You don't have access to Edit");
+    }
   }
 
   opendialog() {}
