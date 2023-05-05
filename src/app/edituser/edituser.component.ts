@@ -36,7 +36,6 @@ export class EdituserComponent {
           name: this.editdata.name,
           email: this.editdata.email,
           password: this.editdata.password,
-          role: this.editdata.role,
           isactive: this.editdata.isactive,
         });
       });
@@ -51,7 +50,6 @@ export class EdituserComponent {
     name: this.builder.control('', Validators.required),
     password: this.builder.control(''),
     email: this.builder.control(''),
-    role: this.builder.control('', Validators.required),
     isactive: this.builder.control(false),
   });
 

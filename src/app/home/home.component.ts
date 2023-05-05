@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdatepopupComponent } from '../updatepopup/updatepopup.component';
+import { EdituserComponent } from '../edituser/edituser.component';
 
 @Component({
   selector: 'app-home',
@@ -33,7 +34,7 @@ export class HomeComponent {
   displayedColumns: string[] = ['username', 'name', 'email', 'action'];
 
   UpdateUser(code: any) {
-    const popup = this.dialog.open(UpdatepopupComponent, {
+    const popup = this.dialog.open(EdituserComponent, {
       enterAnimationDuration: '1000ms',
       exitAnimationDuration: '500ms',
       width: '50%',

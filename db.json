@@ -35,10 +35,9 @@
     {
       "id": "nathanake",
       "name": "1204588963",
-      "password": "nathan>45",
+      "password": "nathan>40",
       "email": "nathanake@outlook.co.za",
-      "role": "",
-      "isactive": false
+      "isactive": true
     },
     {
       "id": "rubendias",
