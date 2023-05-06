@@ -13,7 +13,7 @@
       "name": "0399655488",
       "password": "kevinkdb>30",
       "email": "kevindebruyne@gmail.com",
-      "role": "",
+      "role": "user",
       "isactive": true
     },
     {
@@ -21,7 +21,7 @@
       "name": "0758963574",
       "password": "bernardo>20",
       "email": "bernardosilva@gmail.com",
-      "role": "",
+      "role": "user",
       "isactive": true
     },
     {
@@ -29,14 +29,15 @@
       "name": "0826983221",
       "password": "foden>42",
       "email": "philfoden@gmail.com",
-      "role": "",
+      "role": "user",
       "isactive": false
     },
     {
       "id": "nathanake",
       "name": "1204588963",
-      "password": "nathan>40",
+      "password": "nathan>42",
       "email": "nathanake@outlook.co.za",
+      "role": "user",
       "isactive": true
     },
     {
@@ -44,7 +45,7 @@
       "name": "0698845566",
       "password": "ruben<96",
       "email": "rubendias@yahoo.com",
-      "role": "",
+      "role": "user",
       "isactive": false
     },
     {
@@ -52,7 +53,7 @@
       "name": "0224445669",
       "password": "leroysane=19",
       "email": "leroysane@city.uk",
-      "role": "",
+      "role": "user",
       "isactive": false
     },
     {
@@ -60,8 +61,16 @@
       "name": "0326656996",
       "password": "davidsilva=21",
       "email": "davidsilva@city.com",
-      "role": "",
+      "role": "user",
       "isactive": false
+    },
+    {
+      "id": "mahrez",
+      "name": "0685974465",
+      "password": "mahrez>26",
+      "email": "mahrez@gmail.com",
+      "role": "user",
+      "isactive": true
     }
   ]
 }

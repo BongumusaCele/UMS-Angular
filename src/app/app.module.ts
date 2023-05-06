@@ -18,6 +18,7 @@ import { CustomerComponent } from './customer/customer.component';
 import { ActivatepopupComponent } from './activatepopup/activatepopup.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { AuthService } from './service/auth.service';
+import { UpdateuserpopupComponent } from './updateuserpopup/updateuserpopup.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AuthService } from './service/auth.service';
     CustomerComponent,
     ActivatepopupComponent,
     EdituserComponent,
+    UpdateuserpopupComponent,
   ],
   imports: [
     BrowserModule,

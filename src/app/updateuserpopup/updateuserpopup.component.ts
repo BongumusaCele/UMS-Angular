@@ -6,19 +6,19 @@ import { Router } from '@angular/router';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-edituser',
-  templateUrl: './edituser.component.html',
-  styleUrls: ['./edituser.component.css'],
+  selector: 'app-updateuserpopup',
+  templateUrl: './updateuserpopup.component.html',
+  styleUrls: ['./updateuserpopup.component.css']
 })
-export class EdituserComponent {
+export class UpdateuserpopupComponent {
   public showPassword: boolean = false;
   constructor(
     private builder: FormBuilder,
     private service: AuthService,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private toastr: ToastrService,
-    private dialog: MatDialogRef<EdituserComponent>
-  ) {}
+    private dialog: MatDialogRef<UpdateuserpopupComponent>
+  ) { }
 
   rolelist: any;
   editdata: any;
@@ -36,7 +36,6 @@ export class EdituserComponent {
           name: this.editdata.name,
           email: this.editdata.email,
           password: this.editdata.password,
-          role: this.editdata.role,
           isactive: this.editdata.isactive,
         });
       });
@@ -51,7 +50,6 @@ export class EdituserComponent {
     name: this.builder.control('', Validators.required),
     password: this.builder.control(''),
     email: this.builder.control(''),
-    role: this.builder.control(''),
     isactive: this.builder.control(false),
   });
 

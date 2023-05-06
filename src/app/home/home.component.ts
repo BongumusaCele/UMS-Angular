@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdatepopupComponent } from '../updatepopup/updatepopup.component';
 import { EdituserComponent } from '../edituser/edituser.component';
+import { UpdateuserpopupComponent } from '../updateuserpopup/updateuserpopup.component';
 
 @Component({
   selector: 'app-home',
@@ -34,7 +35,7 @@ export class HomeComponent {
   displayedColumns: string[] = ['username', 'name', 'email', 'action'];
 
   UpdateUser(code: any) {
-    const popup = this.dialog.open(EdituserComponent, {
+    const popup = this.dialog.open(UpdateuserpopupComponent, {
       enterAnimationDuration: '1000ms',
       exitAnimationDuration: '500ms',
       width: '50%',
@@ -46,6 +47,14 @@ export class HomeComponent {
     popup.afterClosed().subscribe((res) => {
       this.Loaduser();
     });
+  }
+
+  checkRole() {
+    if (sessionStorage.getItem('username')) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   opendialog() {}

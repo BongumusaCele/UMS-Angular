@@ -35,7 +35,7 @@ export class SignUpComponent {
       '',
       Validators.compose([Validators.required, Validators.email])
     ),
-    role: this.builder.control(''),
+    role: this.builder.control('user'),
     isactive: this.builder.control(false),
   });
 

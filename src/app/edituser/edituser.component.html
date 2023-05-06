@@ -51,21 +51,13 @@
         }}</mat-icon>
       </mat-form-field>
       <br />
-      <mat-form-field class="example-full-width">
+      <mat-form-field appearance="fill">
         <mat-label>Role</mat-label>
-        <mat-select formControlName="role">
-          <mat-option value="">Select Role</mat-option>
-          <mat-option *ngFor="let item of rolelist" [value]="item.code">
-            {{ item.name }}
-          </mat-option>
-        </mat-select>
+        <select matNativeControl formControlName="role">
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+        </select>
       </mat-form-field>
-
-      <div>
-        <mat-checkbox formControlName="isactive" class="example-margin"
-          >Is Active</mat-checkbox
-        >
-      </div>
 
       <div class="example-button-row">
         <button mat-raised-button color="primary">Update</button><br />
