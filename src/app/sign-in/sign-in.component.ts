@@ -42,7 +42,7 @@ export class SignInComponent implements OnInit {
           this.userdata = res;
           if (this.userdata.password === this.loginform.value.password) {
             if (this.userdata.isactive) {
-              const date = new Date().setSeconds(new Date().getSeconds() + 10);
+              const date = new Date().setMinutes(new Date().getSeconds() + 60);
 
               localStorage.setItem(
                 'sessionExp',

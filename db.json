@@ -13,6 +13,7 @@
       "name": "0399655488",
       "password": "kevinkdb>35",
       "email": "kevindebruyne@gmail.com",
+      "role": "user",
       "isactive": true
     },
     {
@@ -20,6 +21,7 @@
       "name": "0758963574",
       "password": "bernardo>20",
       "email": "bernardosilva@gmail.com",
+      "role": "user",
       "isactive": true
     },
     {

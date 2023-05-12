@@ -1,4 +1,40 @@
 <div class="container">
+  <div class="row">
+    <div
+      class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3"
+      *ngFor="let item of userlist"
+    >
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="account-settings">
+            <div class="user-profile">
+              <div class="user-avatar">
+                <img
+                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                  alt="Maxwell Admin"
+                />
+              </div>
+              <h2 class="user-name">Username: {{ item.id }}</h2>
+              <h2 class="user-email">Email: {{ item.email }}</h2>
+            </div>
+            <div class="about">
+              <h2>Phone: {{ item.name }}</h2>
+
+              <a
+                *ngIf="item.id == session()"
+                (click)="UpdateUser(item.id)"
+                mat-raised-button
+                >Update</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
   <mat-card>
     <mat-card-header>
       <h2>List of Users</h2>
