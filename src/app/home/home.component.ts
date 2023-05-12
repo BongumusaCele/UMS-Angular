@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../service/auth.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -7,15 +7,36 @@ import { MatDialog } from '@angular/material/dialog';
 import { UpdatepopupComponent } from '../updatepopup/updatepopup.component';
 import { EdituserComponent } from '../edituser/edituser.component';
 import { UpdateuserpopupComponent } from '../updateuserpopup/updateuserpopup.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
-  constructor(private service: AuthService, private dialog: MatDialog) {
+export class HomeComponent implements OnInit {
+  constructor(
+    private service: AuthService,
+    private dialog: MatDialog,
+    private router: Router
+  ) {
     this.Loaduser();
+  }
+
+  ngOnInit() {
+    const item = localStorage.getItem('sessionExp');
+
+    if (item) {
+      const res = new Date().getTime() >= JSON.parse(item).expDate;
+      if (res) {
+        localStorage.clear();
+        this.router.navigate(['sign-in']);
+      } else {
+        console.log(JSON.parse(item).value);
+      }
+    } else {
+      console.log('No item');
+    }
   }
 
   userlist: any;
@@ -48,9 +69,12 @@ export class HomeComponent {
       this.Loaduser();
     });
   }
+  session() {
+    return localStorage.getItem('username');
+  }
 
   checkRole() {
-    if (sessionStorage.getItem('username')) {
+    if (localStorage.getItem('username')) {
       return true;
     } else {
       return false;

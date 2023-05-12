@@ -20,7 +20,6 @@ export class CustomerComponent {
     private toastr: ToastrService
   ) {
     this.LoadCustomer();
-    this.SetAccesspermission();
   }
 
   customerlist: any;
@@ -40,21 +39,6 @@ export class CustomerComponent {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
-  }
-
-  SetAccesspermission() {
-    this.service
-      .Getaccessbyrole(this.service.GetUserrole(), 'customer')
-      .subscribe((res) => {
-        this.accessdata = res;
-        console.log(this.accessdata);
-
-        if (this.accessdata.length > 0) {
-          this.haveadd = this.accessdata[0].haveadd;
-          this.haveedit = this.accessdata[0].haveedit;
-          this.havedelete = this.accessdata[0].havedelete;
-        }
-      });
   }
 
   displayedColumns: string[] = [

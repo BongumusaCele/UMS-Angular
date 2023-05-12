@@ -30,14 +30,14 @@ export class AuthService {
   }
 
   IsloggedIn() {
-    return sessionStorage.getItem('username') != null;
+    return localStorage.getItem('username') != null;
   }
 
   GetUserrole() {
-    if (sessionStorage.getItem('userrole') === null) {
+    if (localStorage.getItem('userrole') === null) {
       return '';
     } else {
-      return sessionStorage.getItem('userrole');
+      return localStorage.getItem('userrole');
     }
     /*return sessionStorage.getItem('usserrole') != null
       ? sessionStorage.getItem('userrole')?.toString()
@@ -46,15 +46,6 @@ export class AuthService {
 
   getAllCustomer() {
     return this.http.get('http://localhost:3000/customer');
-  }
-
-  Getaccessbyrole(role: any, menu: any) {
-    return this.http.get(
-      'http://localhost:3000/roleaccess?role=admin&menu=customer' +
-        role +
-        '&menu' +
-        menu
-    );
   }
 
   deleteUser(code: any) {

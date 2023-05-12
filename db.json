@@ -11,9 +11,8 @@
     {
       "id": "kevin",
       "name": "0399655488",
-      "password": "kevinkdb>30",
+      "password": "kevinkdb>35",
       "email": "kevindebruyne@gmail.com",
-      "role": "user",
       "isactive": true
     },
     {
@@ -21,7 +20,6 @@
       "name": "0758963574",
       "password": "bernardo>20",
       "email": "bernardosilva@gmail.com",
-      "role": "user",
       "isactive": true
     },
     {
@@ -37,8 +35,8 @@
       "name": "1204588963",
       "password": "nathan>42",
       "email": "nathanake@outlook.co.za",
-      "role": "user",
-      "isactive": true
+      "role": "admin",
+      "isactive": false
     },
     {
       "id": "rubendias",
@@ -63,14 +61,6 @@
       "email": "davidsilva@city.com",
       "role": "user",
       "isactive": false
-    },
-    {
-      "id": "mahrez",
-      "name": "0685974465",
-      "password": "mahrez>26",
-      "email": "mahrez@gmail.com",
-      "role": "user",
-      "isactive": true
     }
   ]
 }

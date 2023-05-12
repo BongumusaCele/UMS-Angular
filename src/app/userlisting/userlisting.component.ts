@@ -21,7 +21,6 @@ export class UserlistingComponent {
     private toastr: ToastrService
   ) {
     this.LoadCustomer();
-    this.SetAccesspermission();
   }
 
   customerlist: any;
@@ -41,21 +40,6 @@ export class UserlistingComponent {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
-  }
-
-  SetAccesspermission() {
-    this.service
-      .Getaccessbyrole(this.service.GetUserrole(), 'customer')
-      .subscribe((res) => {
-        this.accessdata = res;
-        console.log(this.accessdata);
-
-        if (this.accessdata.length > 0) {
-          this.haveadd = this.accessdata[0].haveadd;
-          this.haveedit = this.accessdata[0].haveedit;
-          this.havedelete = this.accessdata[0].havedelete;
-        }
-      });
   }
 
   displayedColumns: string[] = [
@@ -84,7 +68,7 @@ export class UserlistingComponent {
   }
 
   UpdateCustomer(code: any) {
-    if (sessionStorage.getItem('userrole') === 'admin') {
+    if (localStorage.getItem('userrole') === 'admin') {
       const edituserpopup = this.dialog.open(EdituserComponent, {
         enterAnimationDuration: '1000ms',
         exitAnimationDuration: '500ms',
@@ -104,7 +88,7 @@ export class UserlistingComponent {
   }
 
   RemoveCustomer(code: any) {
-    if (sessionStorage.getItem('userrole') === 'admin') {
+    if (localStorage.getItem('userrole') === 'admin') {
       this.service.deleteUser(code).subscribe();
       this.LoadCustomer();
       this.toastr.success('Success');
@@ -114,7 +98,7 @@ export class UserlistingComponent {
   }
 
   AddCustomer(code: any) {
-    if (sessionStorage.getItem('userrole') === 'admin') {
+    if (localStorage.getItem('userrole') === 'admin') {
       this.toastr.success('Success');
     } else {
       this.toastr.warning("You don't have access to Edit");

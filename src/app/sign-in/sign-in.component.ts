@@ -40,11 +40,20 @@ export class SignInComponent implements OnInit {
       this.service.getBycode(this.loginform.value.username).subscribe(
         (res) => {
           this.userdata = res;
-          console.log(this.userdata);
           if (this.userdata.password === this.loginform.value.password) {
             if (this.userdata.isactive) {
-              sessionStorage.setItem('username', this.userdata.id);
-              sessionStorage.setItem('userrole', this.userdata.role);
+              const date = new Date().setSeconds(new Date().getSeconds() + 10);
+
+              localStorage.setItem(
+                'sessionExp',
+                JSON.stringify({
+                  value: 'string',
+                  expDate: date,
+                })
+              );
+
+              localStorage.setItem('username', this.userdata.id);
+              localStorage.setItem('userrole', this.userdata.role);
               this.router.navigate(['']);
             } else {
               this.toastr.error('Please contact admin', 'In Active User');

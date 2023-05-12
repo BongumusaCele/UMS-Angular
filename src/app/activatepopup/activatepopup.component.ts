@@ -23,10 +23,6 @@ export class ActivatepopupComponent implements OnInit {
   editdata: any;
 
   ngOnInit(): void {
-    this.service.getAllRole().subscribe((res) => {
-      this.rolelist = res;
-    });
-
     if (this.data.usercode != null && this.data.usercode != '') {
       this.service.getBycode(this.data.usercode).subscribe((res) => {
         this.editdata = res;

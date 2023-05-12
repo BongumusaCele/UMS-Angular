@@ -6,36 +6,40 @@ import { Router } from '@angular/router';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-edituser',
-  templateUrl: './edituser.component.html',
-  styleUrls: ['./edituser.component.css'],
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css'],
 })
-export class EdituserComponent {
+export class ProfileComponent implements OnInit {
   public showPassword: boolean = false;
+  lblid: any;
+  lblname: any;
+  lblemail: any;
+  lblpassword: any;
   constructor(
     private builder: FormBuilder,
     private service: AuthService,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private toastr: ToastrService,
-    private dialog: MatDialogRef<EdituserComponent>
+    private dialog: MatDialogRef<ProfileComponent>
   ) {}
 
   rolelist: any;
   editdata: any;
+
   ngOnInit(): void {
-    if (this.data.usercode != null && this.data.usercode != '') {
-      this.service.getBycode(this.data.usercode).subscribe((res) => {
+    this.service
+      .getBycode(localStorage.getItem('username'))
+      .subscribe((res) => {
         this.editdata = res;
         this.registerform.setValue({
           id: this.editdata.id,
           name: this.editdata.name,
           email: this.editdata.email,
           password: this.editdata.password,
-          role: this.editdata.role,
           isactive: this.editdata.isactive,
         });
       });
-    }
   }
 
   registerform = this.builder.group({
@@ -46,7 +50,6 @@ export class EdituserComponent {
     name: this.builder.control('', Validators.required),
     password: this.builder.control(''),
     email: this.builder.control(''),
-    role: this.builder.control(''),
     isactive: this.builder.control(false),
   });
 

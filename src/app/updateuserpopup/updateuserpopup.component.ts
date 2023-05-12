@@ -8,7 +8,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-updateuserpopup',
   templateUrl: './updateuserpopup.component.html',
-  styleUrls: ['./updateuserpopup.component.css']
+  styleUrls: ['./updateuserpopup.component.css'],
 })
 export class UpdateuserpopupComponent {
   public showPassword: boolean = false;
@@ -18,16 +18,12 @@ export class UpdateuserpopupComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private toastr: ToastrService,
     private dialog: MatDialogRef<UpdateuserpopupComponent>
-  ) { }
+  ) {}
 
   rolelist: any;
   editdata: any;
 
   ngOnInit(): void {
-    this.service.getAllRole().subscribe((res) => {
-      this.rolelist = res;
-    });
-
     if (this.data.usercode != null && this.data.usercode != '') {
       this.service.getBycode(this.data.usercode).subscribe((res) => {
         this.editdata = res;

@@ -37,7 +37,11 @@ export class AppComponent implements DoCheck {
     }
   }
   logout() {
-    sessionStorage.clear();
+    localStorage.clear();
     this.router.navigate(['/sign-in']);
+  }
+
+  session() {
+    return localStorage.getItem('username');
   }
 }

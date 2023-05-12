@@ -30,18 +30,6 @@
       <!-- <a class="navbar-item" *ngIf="checkRole()" routerLink="/customer">
         Users
       </a> -->
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link"> More </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item"> About </a>
-          <a class="navbar-item"> Contact </a>
-          <a class="navbar-item"> Testing 1 </a>
-          <a class="navbar-item"> Testing 2</a>
-          <a class="navbar-item"> Testing 3</a>
-        </div>
-      </div>
     </div>
 
     <div class="navbar-end">
@@ -52,9 +40,20 @@
           </a>
         </div>
       </div>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link"> Welcome: {{ session() | titlecase }} </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" routerLink="/profile"> Profile </a>
+          <a class="navbar-item" (click)="logout()"> Sign Out</a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
 <div class="content-body" style="width: 100%; display: block" role="main">
   <router-outlet></router-outlet>
 </div>
+
+<script async type="text/javascript" src="../bulma.js"></script>
