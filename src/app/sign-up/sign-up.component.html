@@ -14,7 +14,16 @@
         class="example-full-width"
       >
         <mat-label>Username</mat-label>
-        <input matInput formControlName="id" />
+        <input type="text" matInput formControlName="id" />
+      </mat-form-field>
+      <br />
+      <mat-form-field
+        appearance="outline"
+        [style.width.px]="327"
+        class="example-full-width"
+      >
+        <mat-label>Full Name</mat-label>
+        <input type="text" matInput formControlName="fullname" />
       </mat-form-field>
       <br />
       <mat-form-field
@@ -23,7 +32,7 @@
         class="example-full-width"
       >
         <mat-label>Email</mat-label>
-        <input matInput formControlName="email" />
+        <input type="email" matInput formControlName="email" />
       </mat-form-field>
       <br />
       <mat-form-field
@@ -32,7 +41,7 @@
         class="example-full-width"
       >
         <mat-label>Phone Number</mat-label>
-        <input matInput formControlName="name" />
+        <input type="number" matInput formControlName="phone" />
       </mat-form-field>
       <br />
       <mat-form-field
@@ -53,7 +62,12 @@
 
       <br />
       <div class="example-button-row">
-        <button [style.width.px]="327" mat-raised-button color="primary">
+        <button
+          [disabled]="!registerform.valid"
+          [style.width.px]="327"
+          mat-raised-button
+          color="primary"
+        >
           Register</button
         ><br /><br />
         <a

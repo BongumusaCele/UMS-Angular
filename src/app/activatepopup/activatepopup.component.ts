@@ -4,6 +4,7 @@ import { AuthService } from '../service/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Users } from '../users';
 
 @Component({
   selector: 'app-activatepopup',
@@ -19,17 +20,17 @@ export class ActivatepopupComponent implements OnInit {
     private dialog: MatDialogRef<ActivatepopupComponent>
   ) {}
 
-  rolelist: any;
-  editdata: any;
+  editdata: Users;
 
   ngOnInit(): void {
     if (this.data.usercode != null && this.data.usercode != '') {
-      this.service.getBycode(this.data.usercode).subscribe((res) => {
+      this.service.getBycode(this.data.usercode).subscribe((res: Users) => {
         this.editdata = res;
         this.registerform.setValue({
           id: this.editdata.id,
-          name: this.editdata.name,
+          fullname: this.editdata.fullname,
           email: this.editdata.email,
+          phone: this.editdata.phone,
           password: this.editdata.password,
           role: this.editdata.role,
           isactive: this.editdata.isactive,
@@ -40,9 +41,10 @@ export class ActivatepopupComponent implements OnInit {
 
   registerform = this.builder.group({
     id: this.builder.control(''),
-    name: this.builder.control(''),
-    password: this.builder.control(''),
+    fullname: this.builder.control(''),
     email: this.builder.control(''),
+    phone: this.builder.control(''),
+    password: this.builder.control(''),
     role: this.builder.control(''),
     isactive: this.builder.control(false),
   });

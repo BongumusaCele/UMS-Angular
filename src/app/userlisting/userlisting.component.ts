@@ -8,6 +8,7 @@ import { UpdatepopupComponent } from '../updatepopup/updatepopup.component';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatepopupComponent } from '../activatepopup/activatepopup.component';
 import { EdituserComponent } from '../edituser/edituser.component';
+import { Users } from '../users';
 
 @Component({
   selector: 'app-userlisting',
@@ -28,11 +29,6 @@ export class UserlistingComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  accessdata: any;
-  haveedit = false;
-  haveadd = false;
-  havedelete = false;
-
   LoadCustomer() {
     this.service.getAll().subscribe((res) => {
       this.customerlist = res;
@@ -44,15 +40,16 @@ export class UserlistingComponent {
 
   displayedColumns: string[] = [
     'username',
-    'name',
-    'password',
+    'fullname',
     'email',
+    'phone',
+    'password',
     'role',
     'status',
     'action',
   ];
 
-  Activation(code: any) {
+  Activation(code: string) {
     const activationpopup = this.dialog.open(ActivatepopupComponent, {
       enterAnimationDuration: '1000ms',
       exitAnimationDuration: '500ms',
@@ -67,7 +64,7 @@ export class UserlistingComponent {
     });
   }
 
-  UpdateCustomer(code: any) {
+  UpdateCustomer(code: string) {
     if (localStorage.getItem('userrole') === 'admin') {
       const edituserpopup = this.dialog.open(EdituserComponent, {
         enterAnimationDuration: '1000ms',
@@ -81,27 +78,31 @@ export class UserlistingComponent {
       edituserpopup.afterClosed().subscribe((res) => {
         this.LoadCustomer();
       });
-      this.toastr.success('Success');
     } else {
       this.toastr.warning("You don't have access to Edit");
     }
   }
 
-  RemoveCustomer(code: any) {
+  RemoveCustomer(code: string) {
     if (localStorage.getItem('userrole') === 'admin') {
-      this.service.deleteUser(code).subscribe();
-      this.LoadCustomer();
-      this.toastr.success('Success');
+      let choice = confirm('Are you sure you want to delete?');
+      if (choice) {
+        this.service.deleteUser(code).subscribe();
+        this.LoadCustomer();
+        this.toastr.success('Success');
+      } else {
+        this.toastr.warning('User Not Deleted');
+      }
     } else {
-      this.toastr.warning("You don't have access to Edit");
+      this.toastr.warning("You don't have access to Delete");
     }
   }
 
-  AddCustomer(code: any) {
+  AddCustomer(code: string) {
     if (localStorage.getItem('userrole') === 'admin') {
       this.toastr.success('Success');
     } else {
-      this.toastr.warning("You don't have access to Edit");
+      this.toastr.warning("You don't have access to Add");
     }
   }
 

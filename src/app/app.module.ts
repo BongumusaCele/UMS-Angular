@@ -22,7 +22,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { CustomerComponent } from './customer/customer.component';
 import { ActivatepopupComponent } from './activatepopup/activatepopup.component';
 import { EdituserComponent } from './edituser/edituser.component';
-import { AuthService } from './service/auth.service';
 import { UpdateuserpopupComponent } from './updateuserpopup/updateuserpopup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatMenuModule } from '@angular/material/menu';

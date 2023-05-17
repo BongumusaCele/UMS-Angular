@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-header>
-    <h1>Update User</h1>
+    <h1>Edit User</h1>
   </mat-card-header>
   <mat-card-content>
     <form
@@ -22,6 +22,15 @@
         [style.width.px]="327"
         class="example-full-width"
       >
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="fullname" />
+      </mat-form-field>
+      <br />
+      <mat-form-field
+        appearance="outline"
+        [style.width.px]="327"
+        class="example-full-width"
+      >
         <mat-label>Email</mat-label>
         <input matInput formControlName="email" />
       </mat-form-field>
@@ -32,7 +41,7 @@
         class="example-full-width"
       >
         <mat-label>Phone Number</mat-label>
-        <input matInput formControlName="name" />
+        <input matInput formControlName="phone" />
       </mat-form-field>
       <br />
       <mat-form-field
@@ -60,7 +69,7 @@
       </mat-form-field>
 
       <div class="example-button-row">
-        <button mat-raised-button color="primary">Update</button><br />
+        <button mat-raised-button color="primary">Edit</button><br />
         <a mat-dialog-close mat-raised-button color="accent">Close</a>
       </div>
     </form>

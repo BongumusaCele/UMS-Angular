@@ -8,6 +8,7 @@ import { UpdatepopupComponent } from '../updatepopup/updatepopup.component';
 import { EdituserComponent } from '../edituser/edituser.component';
 import { UpdateuserpopupComponent } from '../updateuserpopup/updateuserpopup.component';
 import { Router } from '@angular/router';
+import { Users } from '../users';
 
 @Component({
   selector: 'app-home',
@@ -40,22 +41,22 @@ export class HomeComponent implements OnInit {
   }
 
   userlist: any;
-  dataSource: any;
+  //dataSource: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   Loaduser() {
     this.service.getAll().subscribe((res) => {
       this.userlist = res;
-      this.dataSource = new MatTableDataSource(this.userlist);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+      // this.dataSource = new MatTableDataSource(this.userlist);
+      // this.dataSource.paginator = this.paginator;
+      // this.dataSource.sort = this.sort;
     });
   }
 
   displayedColumns: string[] = ['username', 'name', 'email', 'action'];
 
-  UpdateUser(code: any) {
+  UpdateUser(code: string) {
     const popup = this.dialog.open(UpdateuserpopupComponent, {
       enterAnimationDuration: '1000ms',
       exitAnimationDuration: '500ms',

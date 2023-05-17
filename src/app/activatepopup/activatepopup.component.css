@@ -1,0 +1,112 @@
+mat-card-header h1 {
+  margin: 20px;
+  margin-left: 490px;
+  padding-top: 15px;
+  font-weight: bolder;
+}
+
+.example-form {
+  padding-top: 20px;
+  margin-left: 400px;
+}
+
+.example-button-row {
+  display: flex;
+  margin-left: 70px;
+  margin-top: 20px;
+}
+
+.example-button-row a {
+  margin-left: 20px;
+}
+
+.example-margin {
+  margin-left: 97px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  mat-card-header h1 {
+    margin: 20px;
+    margin-left: 490px;
+    padding-top: 15px;
+    font-weight: bolder;
+  }
+
+  .example-form {
+    padding-top: 20px;
+    margin-left: 400px;
+  }
+
+  .example-button-row {
+    display: flex;
+    margin-left: 70px;
+    margin-top: 20px;
+  }
+
+  .example-button-row a {
+    margin-left: 20px;
+  }
+
+  .example-margin {
+    margin-left: 97px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  mat-card-header h1 {
+    margin: 20px;
+    margin-left: 490px;
+    padding-top: 15px;
+    font-weight: bolder;
+  }
+
+  .example-form {
+    padding-top: 20px;
+    margin-left: 400px;
+  }
+
+  .example-button-row {
+    display: flex;
+    margin-left: 70px;
+    margin-top: 20px;
+  }
+
+  .example-button-row a {
+    margin-left: 20px;
+  }
+
+  .example-margin {
+    margin-left: 97px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  mat-card-header h1 {
+    margin: 20px;
+    margin-left: 490px;
+    padding-top: 15px;
+    font-weight: bolder;
+  }
+
+  .example-form {
+    padding-top: 20px;
+    margin-left: 400px;
+  }
+
+  .example-button-row {
+    display: flex;
+    margin-left: 70px;
+    margin-top: 20px;
+  }
+
+  .example-button-row a {
+    margin-left: 20px;
+  }
+
+  .example-margin {
+    margin-left: 97px;
+  }
+}

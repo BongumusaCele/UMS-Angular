@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Users } from '../users';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class AuthService {
     return this.http.get(this.apiurl);
   }
 
-  getBycode(code: any) {
+  getBycode(code: string) {
     return this.http.get(this.apiurl + '/' + code);
   }
 
@@ -25,7 +26,7 @@ export class AuthService {
     return this.http.post(this.apiurl, inputData);
   }
 
-  updateUser(code: any, inputData: any) {
+  updateUser(code: string, inputData: any) {
     return this.http.put(this.apiurl + '/' + code, inputData);
   }
 
@@ -44,11 +45,7 @@ export class AuthService {
       : '';*/
   }
 
-  getAllCustomer() {
-    return this.http.get('http://localhost:3000/customer');
-  }
-
-  deleteUser(code: any) {
+  deleteUser(code: string) {
     return this.http.delete('http://localhost:3000/user/' + code);
   }
 }

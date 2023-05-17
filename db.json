@@ -2,67 +2,57 @@
   "user": [
     {
       "id": "admin",
-      "name": "0112566633",
-      "password": "admin>50",
+      "fullname": "App Admin",
       "email": "admin@digilink.africa",
+      "phone": "01125666344",
+      "password": "Admin>@50",
       "role": "admin",
       "isactive": true
     },
     {
       "id": "kevin",
-      "name": "0399655488",
-      "password": "kevinkdb>35",
+      "fullname": "Kevin De Bruyne",
       "email": "kevindebruyne@gmail.com",
+      "phone": "0399655488",
+      "password": "kevinkdb>35",
       "role": "user",
       "isactive": true
     },
     {
       "id": "bernardo",
-      "name": "0758963574",
-      "password": "bernardo>20",
+      "fullname": "Bernardo Silva",
       "email": "bernardosilva@gmail.com",
+      "phone": "0758963574",
+      "password": "bernardo>20",
       "role": "user",
       "isactive": true
     },
     {
       "id": "philfoden",
-      "name": "0826983221",
-      "password": "foden>42",
+      "fullname": "Phil Foden",
       "email": "philfoden@gmail.com",
+      "phone": "0826983221",
+      "password": "Foden>@42",
+      "role": "user",
+      "isactive": true
+    },
+    {
+      "id": "bongumusa14",
+      "fullname": "Bongumusa Prospa Cele",
+      "email": "prospa.bongumusa@gmail.com",
+      "phone": "0662447638",
+      "password": "Bongumusa@14",
       "role": "user",
       "isactive": false
     },
     {
-      "id": "nathanake",
-      "name": "1204588963",
-      "password": "nathan>42",
-      "email": "nathanake@outlook.co.za",
-      "role": "admin",
-      "isactive": false
-    },
-    {
-      "id": "rubendias",
-      "name": "0698845566",
-      "password": "ruben<96",
-      "email": "rubendias@yahoo.com",
+      "id": "simphiwe",
+      "fullname": "Simphiwe Mbaxa",
+      "email": "simphiwe@gmail.com",
+      "phone": "066288995",
+      "password": "Simp@1234",
       "role": "user",
-      "isactive": false
-    },
-    {
-      "id": "leroysane",
-      "name": "0224445669",
-      "password": "leroysane=19",
-      "email": "leroysane@city.uk",
-      "role": "user",
-      "isactive": false
-    },
-    {
-      "id": "davidsilva",
-      "name": "0326656996",
-      "password": "davidsilva=21",
-      "email": "davidsilva@city.com",
-      "role": "user",
-      "isactive": false
+      "isactive": true
     }
   ]
 }

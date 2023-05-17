@@ -8,6 +8,7 @@ import {
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
+import { Users } from '../users';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,8 +16,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-in.component.css'],
 })
 export class SignInComponent implements OnInit {
-  userdata: any;
   public showPassword: boolean = false;
+  //userdata: any = {};
+
+  userdata: Users;
 
   constructor(
     private builder: FormBuilder,
@@ -38,8 +41,9 @@ export class SignInComponent implements OnInit {
   proceedLogin() {
     if (this.loginform.valid) {
       this.service.getBycode(this.loginform.value.username).subscribe(
-        (res) => {
+        (res: Users) => {
           this.userdata = res;
+          console.log(this.userdata);
           if (this.userdata.password === this.loginform.value.password) {
             if (this.userdata.isactive) {
               const date = new Date().setMinutes(new Date().getSeconds() + 60);
@@ -66,8 +70,7 @@ export class SignInComponent implements OnInit {
           if (error.status === 404) this.toastr.warning('Username Not Found');
           else {
             // We wanna display generic error message and log the error
-            alert('An Unexpected Error Occured.');
-            console.log(error);
+            this.toastr.error('Service Down!, Try Again Later');
           }
         }
       );

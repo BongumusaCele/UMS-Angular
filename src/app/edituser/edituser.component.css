@@ -1,0 +1,21 @@
+mat-card-header h1 {
+  margin: 20px;
+  margin-left: 490px;
+  padding-top: 15px;
+  font-weight: bolder;
+}
+
+.example-form {
+  padding-top: 50px;
+  margin-left: 400px;
+}
+
+.example-button-row {
+  display: flex;
+  margin-left: 70px;
+  margin-top: 20px;
+}
+
+.example-button-row a {
+  margin-left: 20px;
+}

@@ -1,61 +1,75 @@
-<mat-card>
-    <mat-card-header>
-      <h1>Update User</h1>
-    </mat-card-header>
-    <mat-card-content>
-      <form
-        class="example-form"
-        [formGroup]="registerform"
-        (ngSubmit)="updateuser()"
+<div class="container" style="height: 650px">
+  <mat-card-header>
+    <h1>Update User</h1>
+  </mat-card-header>
+  <mat-card-content>
+    <form
+      class="example-form"
+      [formGroup]="registerform"
+      (ngSubmit)="updateuser()"
+    >
+      <mat-form-field
+        appearance="outline"
+        [style.width.px]="327"
+        class="example-full-width"
       >
-        <mat-form-field
-          appearance="outline"
-          [style.width.px]="327"
-          class="example-full-width"
-        >
-          <mat-label>Username</mat-label>
-          <input matInput formControlName="id" />
-        </mat-form-field>
-        <br />
-        <mat-form-field
-          appearance="outline"
-          [style.width.px]="327"
-          class="example-full-width"
-        >
-          <mat-label>Email</mat-label>
-          <input matInput formControlName="email" />
-        </mat-form-field>
-        <br />
-        <mat-form-field
-          appearance="outline"
-          [style.width.px]="327"
-          class="example-full-width"
-        >
-          <mat-label>Phone Number</mat-label>
-          <input matInput formControlName="name" />
-        </mat-form-field>
-        <br />
-        <mat-form-field
-          appearance="outline"
-          [style.width.px]="327"
-          class="example-full-width"
-        >
-          <mat-label>Password</mat-label>
-          <input
-            [type]="showPassword ? 'text' : 'password'"
-            matInput
-            formControlName="password"
-          />
-          <mat-icon matSuffix (click)="togglePasswordVisibility()">{{
-            showPassword ? "visibility_off" : "visibility"
-          }}</mat-icon>
-        </mat-form-field>
-        <br />
-  
-        <div class="example-button-row">
-          <button mat-raised-button color="primary">Update</button><br />
-          <a mat-dialog-close mat-raised-button color="accent">Close</a>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="fullname" />
+      </mat-form-field>
+      <br />
+      <mat-form-field
+        appearance="outline"
+        [style.width.px]="327"
+        class="example-full-width"
+      >
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+      <br />
+      <mat-form-field
+        appearance="outline"
+        [style.width.px]="327"
+        class="example-full-width"
+      >
+        <mat-label>Phone Number</mat-label>
+        <input matInput formControlName="phone" />
+      </mat-form-field>
+      <br />
+      <mat-form-field
+        appearance="outline"
+        [style.width.px]="327"
+        class="example-full-width"
+      >
+        <mat-label>Password</mat-label>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          matInput
+          formControlName="password"
+        />
+        <mat-icon matSuffix (click)="togglePasswordVisibility()">{{
+          showPassword ? "visibility_off" : "visibility"
+        }}</mat-icon>
+      </mat-form-field>
+      <br />
+      <div
+        class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+        *ngIf="session() == 'admin'"
+      >
+        <div class="form-group">
+          <mat-form-field appearance="fill">
+            <mat-label>Role</mat-label>
+            <select matNativeControl formControlName="role">
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+            </select>
+          </mat-form-field>
         </div>
-      </form>
-    </mat-card-content>
-  </mat-card>
+      </div>
+
+      <div class="example-button-row">
+        <button mat-raised-button color="primary">Update</button><br />
+        <a mat-dialog-close mat-raised-button color="accent">Close</a>
+      </div>
+    </form>
+  </mat-card-content>
+</div>

@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, Input } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
@@ -11,29 +16,33 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent {
   public showPassword: boolean = false;
+
   constructor(
     private builder: FormBuilder,
     private toastr: ToastrService,
     private service: AuthService,
     private router: Router
   ) {}
-  /* ,
-        Validators.pattern(
-          '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,}'
-        ), */
+
   registerform = this.builder.group({
     id: this.builder.control(
       '',
       Validators.compose([Validators.required, Validators.minLength(5)])
     ),
-    name: this.builder.control('', Validators.required),
-    password: this.builder.control(
-      '',
-      Validators.compose([Validators.required])
-    ),
+    fullname: this.builder.control('', Validators.required),
     email: this.builder.control(
       '',
       Validators.compose([Validators.required, Validators.email])
+    ),
+    phone: this.builder.control('', Validators.required),
+    password: this.builder.control(
+      '',
+      Validators.compose([
+        Validators.required,
+        Validators.pattern(
+          '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,}'
+        ),
+      ])
     ),
     role: this.builder.control('user'),
     isactive: this.builder.control(false),
@@ -54,12 +63,13 @@ export class SignUpComponent {
             this.toastr.warning('username already exists');
           else {
             // We wanna display generic error message and log the error
-            alert('An Unexpected Error Occured.');
+            this.toastr.error('Service Down!, Try Again Later.');
             console.log(error);
           }
         }
       );
     } else {
+      console.log(this.registerform.status);
       this.toastr.warning('Please enter valid data');
     }
   }

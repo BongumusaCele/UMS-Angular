@@ -1,3 +1,7 @@
+.container {
+  padding-top: 100px;
+}
+
 .demo-table {
   margin-top: 50px;
 }
@@ -33,4 +37,8 @@
   background-color: #fa9884;
   border-radius: 30px;
   color: black;
+}
+
+.mat-elevation-z8 {
+  overflow-x: auto;
 }

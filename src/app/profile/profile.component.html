@@ -7,19 +7,23 @@
             <div class="user-profile">
               <div class="user-avatar">
                 <img
-                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                  src="/assets/users.png"
                   alt="Maxwell Admin"
+                  style="height: 250px; margin-left: 12px; margin-bottom: 16px"
                 />
               </div>
-              <h2 class="user-name">Username: {{ this.editdata.id }}</h2>
-              <h2 class="user-email">Email: {{ this.editdata.email }}</h2>
+              <h2 class="user-name">Username: {{ registerform.value.id }}</h2>
+              <h2 class="user-name">
+                Full Name: {{ registerform.value.fullname }}
+              </h2>
+              <h2 class="user-email">Email: {{ registerform.value.email }}</h2>
             </div>
             <div class="about">
-              <h2>Phone: {{ this.editdata.name }}</h2>
+              <h2>Phone: {{ registerform.value.phone }}</h2>
 
               <h1>About</h1>
               <p>
-                I'm {{ this.editdata.id }}. Lorem ipsum dolor sit amet
+                I'm {{ registerform.value.id }}. Lorem ipsum dolor sit amet
                 consectetur adipisicing elit. Esse corrupti maiores assumenda
                 illo numquam ullam consequatur error ipsum quasi. Molestias.
               </p>
@@ -46,9 +50,19 @@
                 <input
                   type="text"
                   class="form-control"
-                  id="fullName"
                   matInput
                   formControlName="id"
+                />
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  matInput
+                  formControlName="fullname"
                 />
               </div>
             </div>
@@ -58,7 +72,6 @@
                 <input
                   type="email"
                   class="form-control"
-                  id="eMail"
                   matInput
                   formControlName="email"
                 />
@@ -70,9 +83,8 @@
                 <input
                   type="text"
                   class="form-control"
-                  id="phone"
                   matInput
-                  formControlName="name"
+                  formControlName="phone"
                 />
               </div>
             </div>
@@ -82,7 +94,6 @@
                 <input
                   type="url"
                   class="form-control"
-                  id="password"
                   [type]="showPassword ? 'text' : 'password'"
                   matInput
                   formControlName="password"
@@ -91,13 +102,27 @@
                   showPassword ? "visibility_off" : "visibility"
                 }}</mat-icon>
               </div>
+
+              <div
+                class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+                *ngIf="session() == 'admin'"
+              >
+                <div class="form-group">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Role</mat-label>
+                    <select matNativeControl formControlName="role">
+                      <option value="admin">Admin</option>
+                      <option value="user">User</option>
+                    </select>
+                  </mat-form-field>
+                </div>
+              </div>
             </div>
           </div>
           <br />
           <div class="row gutters">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
               <div class="text-right">
-                <button class="btn btn-secondary">Cancel</button>
                 <button class="btn btn-primary">Update</button>
               </div>
             </div>
