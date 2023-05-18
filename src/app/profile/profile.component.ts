@@ -70,6 +70,9 @@ export class ProfileComponent implements OnInit {
             (error: Response) => {
               if (error.status === 404) {
                 this.toastr.warning("You're Not Allowed To Edit Username");
+                setTimeout(function () {
+                  window.location.reload();
+                }, 3000);
               } else {
                 // We wanna display generic error message and log the error
                 this.toastr.error('Service Down!, Try Again Later.');

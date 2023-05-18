@@ -17,19 +17,34 @@
             />
           </div>
           <h2 class="mb-2">{{ item.fullname }}</h2>
-          <p class="text-muted mb-5" style="font-size: 15px">
-            @{{ item.id }} <span class="mx-2">|</span>
-            <a [href]="'mailto:' + item.email">{{ item.email }}</a>
-          </p>
+          <p class="text-muted mb-5" style="font-size: 15px">@{{ item.id }}</p>
+          <div>
+            <a [href]="'mailto:' + item.email">
+              <img
+                src="/assets/mail.png"
+                style="width: 30px; margin-right: 10px"
+              />
+              {{ item.email }}</a
+            >
+          </div>
 
-          <p class="text-muted mb-5" style="font-size: 15px">
-            phone: {{ item.phone }}
-          </p>
+          <div>
+            <a
+              [href]="'tel:' + item.phone"
+              class="text-muted mb-5"
+              style="font-size: 15px"
+              ><img
+                src="/assets/phone-call.png"
+                style="width: 25px; margin-right: 10px"
+              />{{ item.phone }}
+            </a>
+          </div>
 
           <a
             *ngIf="item.id == session()"
             (click)="UpdateUser(item.id)"
             mat-raised-button
+            style="margin-top: 20px"
             >Update</a
           >
         </div>

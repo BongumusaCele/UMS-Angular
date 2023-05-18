@@ -3,6 +3,7 @@ mat-card-header h1 {
   margin-left: 490px;
   padding-top: 15px;
   font-weight: bolder;
+  text-align: center;
 }
 
 .example-form {
