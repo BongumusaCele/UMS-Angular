@@ -53,6 +53,51 @@
       "password": "Simp@1234",
       "role": "user",
       "isactive": true
+    },
+    {
+      "id": "Bongz",
+      "fullname": "Bongumusa Cele",
+      "email": "bongz@outlook.co.za",
+      "phone": 589663214,
+      "password": "Bongz@500",
+      "role": "user",
+      "isactive": true
+    },
+    {
+      "id": "Nomasonto",
+      "fullname": "Nomasonto Ndlela",
+      "email": "nomasonto@gmai.co.za",
+      "phone": 142258963,
+      "password": "Nomasonto@1",
+      "role": "user",
+      "isactive": true
+    },
+    {
+      "id": "Phumu",
+      "fullname": "Phumudza Mavhinga",
+      "email": "phumu@gmail.com",
+      "phone": 2256698485,
+      "password": "Phumu@222",
+      "role": "user",
+      "isactive": true
+    },
+    {
+      "id": "Benzema",
+      "fullname": "Benzema Rema",
+      "email": "Phumudzo@gmail.com",
+      "phone": 6245789633,
+      "password": "Phumu@222",
+      "role": "user",
+      "isactive": false
+    },
+    {
+      "id": "Unaii",
+      "fullname": "Unai Emrey",
+      "email": "unai.emrey@gmail.com",
+      "phone": 963556987,
+      "password": "Unaiiii@1",
+      "role": "user",
+      "isactive": true
     }
   ]
 }

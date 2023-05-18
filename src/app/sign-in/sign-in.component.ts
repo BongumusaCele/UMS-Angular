@@ -63,7 +63,7 @@ export class SignInComponent implements OnInit {
               this.toastr.error('Please contact admin', 'In Active User');
             }
           } else {
-            this.toastr.error('Invalid Credentials');
+            this.toastr.error('Invalid Password');
           }
         },
         (error: Response) => {

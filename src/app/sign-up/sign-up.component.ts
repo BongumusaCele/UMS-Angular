@@ -34,7 +34,10 @@ export class SignUpComponent {
       '',
       Validators.compose([Validators.required, Validators.email])
     ),
-    phone: this.builder.control('', Validators.required),
+    phone: this.builder.control(
+      '',
+      Validators.compose([Validators.required, Validators.minLength(10)])
+    ),
     password: this.builder.control(
       '',
       Validators.compose([
@@ -49,7 +52,28 @@ export class SignUpComponent {
   });
 
   proceedRegistration() {
-    if (this.registerform.valid) {
+    if (this.registerform.value.id.length < 5) {
+      this.toastr.warning('Username Length must be minimum 5 characters');
+    } else if (this.registerform.value.fullname === '') {
+      this.toastr.warning('Fullname is required');
+    } else if (
+      this.registerform.value.email === '' ||
+      this.ValidateEmail(this.registerform.value.email) === false
+    ) {
+      this.toastr.warning('Please enter valid email');
+    } else if (
+      this.registerform.value.phone === '' ||
+      this.registerform.value.phone.length < 10
+    ) {
+      this.toastr.warning('Phone is required');
+    } else if (this.checkPassword(this.registerform.value.password) === false) {
+      this.toastr.warning(
+        'Password must be minimum 9 Character, 1 Capital Letter, 1 Number and a special characters'
+      );
+    } else if (this.registerform.invalid) {
+      console.log(this.registerform.status);
+      this.toastr.warning('Please enter valid data');
+    } else {
       this.service.proceedRegister(this.registerform.value).subscribe(
         (res) => {
           this.toastr.success(
@@ -68,13 +92,21 @@ export class SignUpComponent {
           }
         }
       );
-    } else {
-      console.log(this.registerform.status);
-      this.toastr.warning('Please enter valid data');
     }
   }
 
   public togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
+  }
+
+  checkPassword(str: any) {
+    var pe =
+      /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,}/;
+    return pe.test(str);
+  }
+
+  ValidateEmail(mail) {
+    var em = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    return em.test(mail);
   }
 }

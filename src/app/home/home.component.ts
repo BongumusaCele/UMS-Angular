@@ -24,21 +24,7 @@ export class HomeComponent implements OnInit {
     this.Loaduser();
   }
 
-  ngOnInit() {
-    const item = localStorage.getItem('sessionExp');
-
-    if (item) {
-      const res = new Date().getTime() >= JSON.parse(item).expDate;
-      if (res) {
-        localStorage.clear();
-        this.router.navigate(['sign-in']);
-      } else {
-        console.log(JSON.parse(item).value);
-      }
-    } else {
-      console.log('No item');
-    }
-  }
+  ngOnInit() {}
 
   userlist: any;
   //dataSource: any;
