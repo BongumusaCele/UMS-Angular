@@ -61,11 +61,7 @@ export class HomeComponent implements OnInit {
   }
 
   checkRole() {
-    if (localStorage.getItem('username')) {
-      return true;
-    } else {
-      return false;
-    }
+    return localStorage.getItem('userrole');
   }
 
   opendialog() {}

@@ -106,5 +106,9 @@ export class UserlistingComponent {
     }
   }
 
+  session() {
+    return localStorage.getItem('username');
+  }
+
   opendialog() {}
 }

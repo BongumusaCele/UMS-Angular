@@ -36,7 +36,11 @@ export class SignUpComponent {
     ),
     phone: this.builder.control(
       '',
-      Validators.compose([Validators.required, Validators.minLength(10)])
+      Validators.compose([
+        Validators.required,
+        Validators.minLength(10),
+        Validators.maxLength(10),
+      ])
     ),
     password: this.builder.control(
       '',
@@ -62,10 +66,11 @@ export class SignUpComponent {
     ) {
       this.toastr.warning('Please enter valid email');
     } else if (
-      this.registerform.value.phone === '' ||
-      this.registerform.value.phone.length < 10
+      this.registerform.value.phone === '' &&
+      this.registerform.value.phone.length < 10 &&
+      this.registerform.value.phone.length > 10
     ) {
-      this.toastr.warning('Phone is required');
+      this.toastr.warning('Phone is required, 10 characters');
     } else if (this.checkPassword(this.registerform.value.password) === false) {
       this.toastr.warning(
         'Password must be minimum 9 Character, 1 Capital Letter, 1 Number and a special characters'

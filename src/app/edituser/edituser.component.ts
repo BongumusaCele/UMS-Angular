@@ -4,6 +4,7 @@ import { AuthService } from '../service/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Users } from '../users';
 
 @Component({
   selector: 'app-edituser',
@@ -20,12 +21,11 @@ export class EdituserComponent {
     private dialog: MatDialogRef<EdituserComponent>
   ) {}
 
-  rolelist: any;
-  editdata: any;
+  editdata: Users;
 
   ngOnInit(): void {
     if (this.data.usercode != null && this.data.usercode != '') {
-      this.service.getBycode(this.data.usercode).subscribe((res) => {
+      this.service.getBycode(this.data.usercode).subscribe((res: Users) => {
         this.editdata = res;
         this.registerform.setValue({
           id: this.editdata.id,

@@ -41,7 +41,7 @@
           </div>
 
           <a
-            *ngIf="item.id == session()"
+            *ngIf="item.id == session() && checkRole() === 'user'"
             (click)="UpdateUser(item.id)"
             mat-raised-button
             style="margin-top: 20px"

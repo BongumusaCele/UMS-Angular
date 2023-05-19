@@ -58,12 +58,14 @@
             <td mat-cell *matCellDef="let element">
               <a (click)="UpdateCustomer(element.id)" mat-raised-button>Edit</a>
               <a
+                *ngIf="element.id != session()"
                 (click)="RemoveCustomer(element.id)"
                 mat-raised-button
                 color="accent"
                 >Delete</a
               >
               <button
+                *ngIf="element.id != session()"
                 (click)="Activation(element.id)"
                 mat-raised-button
                 color="primary"

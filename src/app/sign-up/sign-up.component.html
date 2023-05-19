@@ -62,11 +62,17 @@
 
       <br />
       <div class="example-button-row">
-        <button [style.width.px]="327" mat-raised-button color="primary">
+        <button
+          [style.width.px]="327"
+          [style.border-radius.px]="40"
+          mat-raised-button
+          color="primary"
+        >
           Register</button
         ><br /><br />
         <a
           [style.width.px]="327"
+          [style.border-radius.px]="40"
           routerLink="/sign-in"
           mat-raised-button
           color="accent"
