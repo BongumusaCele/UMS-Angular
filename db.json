@@ -69,7 +69,7 @@
       "email": "nomasonto@gmai.co.za",
       "phone": 142258963,
       "password": "Nomasonto@1",
-      "role": "user",
+      "role": "admin",
       "isactive": true
     },
     {
@@ -91,12 +91,12 @@
       "isactive": false
     },
     {
-      "id": "Unaii",
-      "fullname": "Unai Emrey",
-      "email": "unai.emrey@gmail.com",
-      "phone": 963556987,
-      "password": "Unaiiii@11",
-      "role": "user",
+      "id": "Lericia32",
+      "fullname": "Lericia Solomans",
+      "email": "lericia@harambee.co.za",
+      "phone": 27625889874,
+      "password": "Lericia@22",
+      "role": "admin",
       "isactive": true
     }
   ]

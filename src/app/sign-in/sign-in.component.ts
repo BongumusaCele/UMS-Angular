@@ -17,8 +17,6 @@ import { Users } from '../users';
 })
 export class SignInComponent implements OnInit {
   public showPassword: boolean = false;
-  //userdata: any = {};
-
   userdata: Users;
 
   constructor(

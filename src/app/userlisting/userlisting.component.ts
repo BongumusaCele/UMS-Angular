@@ -110,5 +110,9 @@ export class UserlistingComponent {
     return localStorage.getItem('username');
   }
 
+  checkRole() {
+    return localStorage.getItem('userrole');
+  }
+
   opendialog() {}
 }
