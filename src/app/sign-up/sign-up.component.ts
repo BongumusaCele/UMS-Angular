@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -8,15 +8,25 @@ import {
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
 })
-export class SignUpComponent {
+export class SignUpComponent implements OnInit {
   public showPassword: boolean = false;
+  password = 'Yeysysysy';
+  encrypted: any;
 
+  ngOnChanges() {
+    alert();
+    this.encrypted = CryptoJS.MD5(this.password).toString(CryptoJS.enc.Base64);
+  }
+  ngOnInit() {
+    this.encrypted = CryptoJS.MD5(this.password).toString(CryptoJS.enc.Base64);
+  }
   constructor(
     private builder: FormBuilder,
     private toastr: ToastrService,
@@ -81,6 +91,7 @@ export class SignUpComponent {
     } else {
       this.service.proceedRegister(this.registerform.value).subscribe(
         (res) => {
+          this.registerform.value.password;
           this.toastr.success(
             'Contact Admin For Access',
             'Sign Up Successful!'

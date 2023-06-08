@@ -98,6 +98,24 @@
       "password": "Lericia@22",
       "role": "admin",
       "isactive": true
+    },
+    {
+      "id": "Userr",
+      "fullname": "UUUUUU uUUUU",
+      "email": "UUUUU@gmail.com",
+      "phone": 666665656565,
+      "password": "EEEee@123",
+      "role": "user",
+      "isactive": false
+    },
+    {
+      "id": "dsfsdfs",
+      "fullname": "dfsdfsdfs",
+      "email": "sdfsdfsd@gmail.com",
+      "phone": 257540404,
+      "password": "Muus@Muuu2",
+      "role": "user",
+      "isactive": false
     }
   ]
 }
