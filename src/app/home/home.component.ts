@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {}
 
-  userlist: any;
+  userlist: Users[];
   //dataSource: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

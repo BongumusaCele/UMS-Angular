@@ -25,13 +25,13 @@ export class UserlistingComponent {
     this.LoadCustomer();
   }
 
-  customerlist: any;
+  customerlist: Users[] = [];
   dataSource: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   LoadCustomer() {
-    this.service.getAll().subscribe((res) => {
+    this.service.getAll().subscribe((res: Users[]) => {
       this.customerlist = res;
       this.dataSource = new MatTableDataSource(this.customerlist);
       this.dataSource.paginator = this.paginator;

@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   getAll() {
-    return this.http.get(this.apiurl);
+    return this.http.get<Users[]>(this.apiurl);
   }
 
   getBycode(code: string) {
