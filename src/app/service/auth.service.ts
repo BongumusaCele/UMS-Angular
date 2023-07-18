@@ -6,16 +6,16 @@ import { Users } from '../users';
   providedIn: 'root',
 })
 export class AuthService {
-  apiurl = 'http://localhost:3000/user';
+  apiurl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {}
 
   getAll() {
-    return this.http.get<Users[]>(this.apiurl);
+    return this.http.get<Users[]>(this.apiurl + '/get-users');
   }
 
   getBycode(code: string) {
-    return this.http.get(this.apiurl + '/' + code);
+    return this.http.get(this.apiurl + '/get-users/' + code);
   }
 
   getAllRole() {
@@ -23,11 +23,11 @@ export class AuthService {
   }
 
   proceedRegister(inputData: any) {
-    return this.http.post(this.apiurl, inputData);
+    return this.http.post(this.apiurl + '/register-user', inputData);
   }
 
   updateUser(code: string, inputData: any) {
-    return this.http.put(this.apiurl + '/' + code, inputData);
+    return this.http.put(this.apiurl + '/update-user/' + code, inputData);
   }
 
   IsloggedIn() {
@@ -46,6 +46,6 @@ export class AuthService {
   }
 
   deleteUser(code: string) {
-    return this.http.delete('http://localhost:3000/user/' + code);
+    return this.http.delete(this.apiurl + '/delete-user/' + code);
   }
 }

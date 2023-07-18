@@ -74,9 +74,12 @@ export class EdituserComponent {
             this.dialog.close();
           },
           (error: Response) => {
-            if (error.status === 404)
+            if (error.status === 200) {
+              this.toastr.success('Updated succesfully.');
+              this.dialog.close();
+            } else if (error.status === 500) {
               this.toastr.warning("You're Not Allowed To Edit Username");
-            else {
+            } else {
               // We wanna display generic error message and log the error
               this.toastr.error('Service Down!, Try Again Later.');
               console.log(error);

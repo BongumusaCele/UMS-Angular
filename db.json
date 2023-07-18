@@ -116,6 +116,24 @@
       "password": "Muus@Muuu2",
       "role": "user",
       "isactive": false
+    },
+    {
+      "id": "sffsdfsdfdsf",
+      "fullname": "fdsfddfsdf",
+      "email": "sdffsdfsdf@gmail.vom",
+      "phone": 534345334,
+      "password": "fghhgfS@1534",
+      "role": "user",
+      "isactive": false
+    },
+    {
+      "id": "musa222",
+      "fullname": "Gunna Wunna",
+      "email": "gunna@gmaiil.com",
+      "phone": 82524525225,
+      "password": "Gunna@4321",
+      "role": "user",
+      "isactive": false
     }
   ]
 }

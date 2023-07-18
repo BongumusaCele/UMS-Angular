@@ -99,9 +99,15 @@ export class SignUpComponent implements OnInit {
           this.router.navigate(['sign-in']);
         },
         (error: Response) => {
-          if (error.status === 500)
-            this.toastr.warning('username already exists');
-          else {
+          if (error.status === 200) {
+            this.toastr.success(
+              'Contact Admin For Access',
+              'Sign Up Successful!'
+            );
+            this.router.navigate(['sign-in']);
+          } else if (error.status === 400) {
+            this.toastr.warning('email already exists');
+          } else {
             // We wanna display generic error message and log the error
             this.toastr.error('Service Down!, Try Again Later.');
             console.log(error);
